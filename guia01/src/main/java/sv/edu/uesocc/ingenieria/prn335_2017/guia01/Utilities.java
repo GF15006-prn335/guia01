@@ -16,17 +16,22 @@ public class Utilities {
      * @return cadena
      */
          public String getResume(String texto){
-       String cadena=texto.substring(0, 29);
+       String cadena=texto.substring(0,29);
         return cadena;
     }
-    
+    /**
+     * primero quita los espacios doble con el replaceAll
+     * y luego de guiado por los espacios convierte a mayuscula la primera
+     * @param texto
+     * @return cap
+     */
     public String capitalizar(String texto){
         String cap="";
         texto.replaceAll("  ", " ");
-        cap=String.valueOf(texto.charAt(0)).toUpperCase();    
+        cap+=String.valueOf(texto.charAt(0)).toUpperCase();    
         for(int i=0;1<texto.length();i++){
-            if(texto.charAt(i-1)==' ' || texto.charAt(i)==' '){
-                cap=String.valueOf(texto.charAt(i)).toUpperCase();
+         if(texto.charAt(i-1)==' ' || texto.charAt(i)==' '){
+                cap+=String.valueOf(texto.charAt(i)).toUpperCase();
             }else{
                 cap+=texto.charAt(i);
             }
@@ -34,14 +39,20 @@ public class Utilities {
              return cap;
        
     }
-    public int contarCoincidencias(String frase, String texto){
-        int coincidencia=0;      
+    /**
+     * mediante el indexof me devuelve la posicion y la compara con con la frase y texto
+     * @param frase
+     * @param texto
+     * @return coincidencias
+     */
+   public int contarCoincidencias(String frase, String texto){
+   int coincidencias=0;      
    int posicion = texto.indexOf(frase);
    while (  posicion != -1 ) {
-   coincidencia++;
+   coincidencias++;
    posicion = texto.indexOf(frase,posicion+1);
 }
-      return coincidencia;
+      return coincidencias;
     }
     
     
